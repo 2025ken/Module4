@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Tip Calculator</title>
+</head>
+<body>
+	<h1>Tip Calculator</h1>
+	<button onclick="calcTip()">Calculate Tip</button>
+	
+	<script>
+		function calcTip(){
+			let amount = parseFloat(prompt("Enter the service amount between $5 to $500 "));
+			if (amount < 5 || amount > 500){
+				alert("invalid amount, please enter betweeen $5 to %500");
+				return;
+			}
+			let quality = prompt("Enter the service quality: great, ok, poor: ").toLowerCase();
+			if (quality !== "great" && quality !== "ok" && quality !== "poor"){
+				alert("invalid service quality, please choose great, ok, poor");
+				return;
+			}
+			let tippingPercent = quality === "great" ? 0.20 : quality === "ok" ? 0.15 : 0.10;
+			let tip = amount * tippingPercent
+			let total = amount + tip;
+			alert(`Amount: $${amount.toFixed(2)} Tip: $${tip.toFixed(2)} Total: $${total.toFixed(2)}`);
+			}
+		</script>
+</body>
+</html>
